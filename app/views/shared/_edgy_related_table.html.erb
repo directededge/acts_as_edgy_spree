@@ -1,7 +1,7 @@
 <% unless edgy_related(options).empty? -%>
   <table class="edgy-related">
     <tr>
-      <td colspan="<%= orientation == :horizontal ? 2 : edgy_related.size %>">
+      <td colspan="<%= orientation == :horizontal ? edgy_related.size : 2 %>">
         <h3 class="edgy-label"><%= options[:message] || edgy_message %></h3>
       </td>
     </tr>
