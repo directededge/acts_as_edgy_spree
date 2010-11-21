@@ -16,7 +16,7 @@
         <% edgy_related.each do |related_product| %>
           <td class="edgy-label">
             <%=h link_to related_product.name, related_product %><br />
-            <span class="price"><%=h number_to_currency related_product.price %></span>
+            <span class="price"><%=h product_price(related_product) %></span>
           </td>
         <% end %>
       </tr>
@@ -28,7 +28,7 @@
           </td>
           <td class="edgy-label">
             <%=h link_to related_product.name, related_product %><br />
-            <span class="price"><%=h number_to_currency related_product.price %></span>
+            <span class="price"><%=h product_price(related_product) %></span>
           </td>
         </tr>
       <% end %>
