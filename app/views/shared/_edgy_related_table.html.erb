@@ -1,0 +1,37 @@
+<% unless edgy_related(options).empty? -%>
+  <table class="edgy-related">
+    <tr>
+      <td colspan="<%= orientation == :horizontal ? 2 : edgy_related.size %>">
+        <h3 class="edgy-label"><%= options[:message] || edgy_message %></h3>
+      </td>
+    </tr>
+    <% if orientation == :horizontal %>
+      <tr>
+        <% edgy_related.each do |related_product| %>
+          <td class="edgy-image" style="width: <%= (100 / edgy_related.size) %>%">
+            <%= link_to small_image(related_product), related_product %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <% edgy_related.each do |related_product| %>
+          <td class="edgy-label">
+            <%=h link_to related_product.name, related_product %><br />
+            <span class="price"><%=h number_to_currency related_product.price %></span>
+          </td>
+        <% end %>
+      </tr>
+    <% else %>
+      <% edgy_related.each do |related_product| -%>
+        <tr>
+          <td class="edgy-image">
+            <%= link_to small_image(related_product), related_product %>
+          </td>
+          <td class="edgy-label">
+            <%=h link_to related_product.name, related_product %><br />
+            <span class="price"><%=h number_to_currency related_product.price %></span>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>
